@@ -1,6 +1,7 @@
 #include <iostream>
+#include <vector>
+using namespace std; 
 
-// Find the last digit of each fibonaci number and keep adding it. 
 
 int fibonacci_sum_naive(long long n) {
     if (n <= 1)
@@ -21,19 +22,30 @@ int fibonacci_sum_naive(long long n) {
 }
 
 int fibonacci_sum_fast(long long n){
-	int prev = 0;
-	int current = 1;
-	int fib = 0;
-	if(n==0)
-	return 0;
-	int sum = 1;
-	for(int i=2;i<=n;i++){
-		fib = (prev+current)%10;  //Last digit of number.
-		prev = current;
-		current = fib;
-		sum = sum + fib;   //Sum the last digits.
+	int rem[60];
+	rem[0] = 0;
+	int previous = 0;
+    int current  = 1;
+    int fib = 0;
+    int sum = 0;
+	for(int i=2;i<=60;i++){
+		fib = (previous + current)%10;
+        previous = current;
+        current = fib;
+        rem[i-1] = previous;
+        sum = sum + previous;
 	}
-	return sum%10;
+	
+	long long q = n/60;
+	int r = n%60;
+	int p_sum = 0;
+	for(int i=0;i<=r;i++)
+	p_sum = p_sum + rem[i];
+	
+	int total = (q%10)*(sum%10) + (p_sum%10);
+	
+	return total%10;
+
 }
 
 
