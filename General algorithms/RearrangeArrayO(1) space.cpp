@@ -4,7 +4,7 @@
 
 using namespace std;
 
-//The values in array should be less than N-1 for the method to work
+//The values in array should be less than N-1 for the method to work.
 
 void arrange(vector<int> &A) {
     
@@ -29,6 +29,7 @@ int main(){
 	A.push_back(2);
 	A.push_back(3);
 	A.push_back(1);
+	A.push_back(5);
 	arrange(A);
 	for(int i=0;i<A.size();i++)
 	cout<<A[i]<<" ";
