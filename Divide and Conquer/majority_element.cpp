@@ -9,7 +9,6 @@ using namespace std;
 int get_majority_element(vector<int> &a, int left, int right) {
   if (left == right) return a[left];
   if (left + 1 == right) return a[left];
-  //write your code here
 	int mid = floor((left+right)/2);
 	
 	int l = get_majority_element(a, left, mid);
