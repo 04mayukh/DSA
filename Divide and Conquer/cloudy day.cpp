@@ -1,5 +1,6 @@
 #include <bits/stdc++.h>
-
+#include <vector>
+#include <algorithm>
 using namespace std;
 
 vector<string> split_string(string);
